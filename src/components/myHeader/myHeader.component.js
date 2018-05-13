@@ -1,5 +1,5 @@
 export default {
-  name: 'header',
+  name: 'my-header',
   components: {}, 
   props: [],
   data () {
