@@ -61,6 +61,28 @@ export default {
         }
       );
     },
+    btnLoginWithTwitter: function(event) {
+      var provider = new firebase.auth.TwitterAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(
+        function(user) {
+          //alert("You have log in with user " + user.name)
+        },
+        function(err) {
+          alert("Error in login -> " + err)
+        }
+      );
+    },
+    btnLoginWithFacebook: function(event) {
+      var provider = new firebase.auth.FacebookAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(
+        function(user) {
+          //alert("You have log in with user " + user.name)
+        },
+        function(err) {
+          alert("Error in login -> " + err)
+        }
+      );
+    },
     btnRegister: function(event) {
       firebase.auth().createUserWithEmailAndPassword(this.sRegisterEmail, this.sRegisterPassword).then(
         function(user) {
