@@ -14,18 +14,25 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
+.google-btn {
+    background-color: white;
+    padding: none;
+    float: left;
+    width: 33%;
+}
+
 .twitter-btn {
     background-color: white;
     padding: none;
     float: left;
-    width: 50%;
+    width: 33%;
 }
 
 .facebook-btn {
     background-color: white;
     padding: none;
     float: left;
-    width: 50%;;
+    width: 33%;;
 }
 
 /* Set a style for all buttons */

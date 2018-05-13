@@ -1,6 +1,7 @@
 class User {
     constructor (id, datos) {
       this.id = id
+      this.email = datos.Email
       this.username = datos.Username
       this.avatar = datos.Image
       this.bio = datos.Bio

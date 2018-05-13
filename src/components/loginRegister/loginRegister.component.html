@@ -8,6 +8,7 @@
     
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" v-model="sLoginPassword">
+        <button class="google-btn" v-on:click="btnLoginWithGoogle"><img src="https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-512.png" alt="Google" width="50px"></button>
         <button class="twitter-btn" v-on:click="btnLoginWithTwitter"><img src="http://icons.iconarchive.com/icons/fasticon/web-2/256/Twitter-icon.png" alt="Twitter" width="50px"></button>
         <button class="facebook-btn" v-on:click="btnLoginWithFacebook"><img src="http://www.iconarchive.com/download/i11578/fasticon/web-2/FaceBook.ico" alt="Facebook" width="50px"></button>
         <button v-on:click="btnLogin">Login</button>

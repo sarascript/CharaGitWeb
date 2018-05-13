@@ -61,6 +61,17 @@ export default {
         }
       );
     },
+    btnLoginWithGoogle: function(event) {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(
+        function(user) {
+          //alert("You have log in with user " + user.name)
+        },
+        function(err) {
+          alert("Error in login -> " + err)
+        }
+      );
+    },
     btnLoginWithTwitter: function(event) {
       var provider = new firebase.auth.TwitterAuthProvider();
       firebase.auth().signInWithPopup(provider).then(
@@ -88,7 +99,7 @@ export default {
         function(user) {
           alert("Your account was created " + user.name)
           var docRef = firebase.firestore().collection("Users")
-          docRef.doc(user.uid+"").set({Username:"Hola",Name:"Hola",Bio:"hola"})
+          docRef.doc(user.uid+"").set({Email:this.sRegisterEmail,Username:"Hola",Name:"Hola",Bio:"hola"})
         },
         function(err) {
           alert("Error in register -> " + err)
