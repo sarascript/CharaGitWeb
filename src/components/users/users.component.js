@@ -6,7 +6,7 @@ class User {
     this.id = id
     this.email = datos.Email
     this.username = datos.Username
-    this.avatar = datos.Image
+    this.avatar = datos.Avatar
     this.bio = datos.Bio
   }
 }

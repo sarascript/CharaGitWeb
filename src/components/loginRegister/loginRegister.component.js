@@ -99,7 +99,7 @@ export default {
         function(user) {
           alert("Your account was created " + user.name)
           var docRef = firebase.firestore().collection("Users")
-          docRef.doc(user.uid+"").set({Username:"Hola",Name:"Hola",Bio:"hola"})
+          docRef.doc(user.uid+"").set({Avatar:"https://firebasestorage.googleapis.com/v0/b/charagit-e5789.appspot.com/o/logo.png?alt=media&token=5b357f09-92e7-4f36-b4f9-1b0a7cbc9208",Username:"Default",Name:"Default",Bio:"This is a default profile"})
         },
         function(err) {
           alert("Error in register -> " + err)
