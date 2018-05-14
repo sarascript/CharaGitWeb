@@ -32,8 +32,85 @@ exports.addMessage = functions.https.onRequest((req, res) => {
       });
 });
 
+// [START sendWelcomeEmail]
+/**
+ * Sends a welcome email to new user.
+ */
+// [START onCreateTrigger]
 exports.sendWelcomeEmail = functions.auth.user().onCreate((user) => {
-      const email = user.email; // The email of the user.
-      const displayName = user.displayName; // The display name of the user.
-      return sendWelcomeEmail(email, displayName);
+  // [END onCreateTrigger]
+    // [START eventAttributes]
+    const email = user.email; // The email of the user.
+    const displayName = user.displayName; // The display name of the user.
+    // [END eventAttributes]
+  
+    return sendWelcomeEmail(email, displayName);
+  });
+  // [END sendWelcomeEmail]
+  
+  // [START sendByeEmail]
+  /**
+   * Send an account deleted email confirmation to users who delete their accounts.
+   */
+  // [START onDeleteTrigger]
+  exports.sendByeEmail = functions.auth.user().onDelete((user) => {
+  // [END onDeleteTrigger]
+    const email = user.email;
+    const displayName = user.displayName;
+  
+    return sendGoodbyEmail(email, displayName);
+  });
+  // [END sendByeEmail]
+  
+  // Sends a welcome email to the given user.
+  function sendWelcomeEmail(email, displayName) {
+    const mailOptions = {
+      from: `${APP_NAME} <noreply@firebase.com>`,
+      to: email,
+    };
+  
+    // The user subscribed to the newsletter.
+    mailOptions.subject = `Welcome to ${APP_NAME}!`;
+    mailOptions.text = `Hey ${displayName || ''}! Welcome to ${APP_NAME}. Now you can enjoy creating Open Source code more than ever :)`;
+    return mailTransport.sendMail(mailOptions).then(() => {
+      return console.log('New welcome email sent to:', email);
     });
+  }
+  
+  // Sends a goodbye email to the given user.
+  function sendGoodbyEmail(email, displayName) {
+    const mailOptions = {
+      from: `${APP_NAME} <noreply@firebase.com>`,
+      to: email,
+    };
+  
+    // The user unsubscribed to the newsletter.
+    mailOptions.subject = `Bye!`;
+    mailOptions.text = `Hey ${displayName || ''}!, We confirm that we have deleted your ${APP_NAME} account. We hope you return to us someday :(`;
+    return mailTransport.sendMail(mailOptions).then(() => {
+      return console.log('Account deletion confirmation email sent to:', email);
+    });
+  }
+
+  exports.sendNotification = functions.database.ref('Users/{uid}/Username/').onWrite(event=>{
+    const uuid = event.params.uid;
+    
+    console.log('User to send notification', uuid);
+    
+    var ref = admin.database().ref(`Users/${uuid}/token`);
+    return ref.once("value", function(snapshot){
+    
+        const payload = {
+              notification: {
+                title: 'You have set an Username',
+                body: 'Tap here to check it out!'
+              }
+            };
+    
+            admin.messaging().sendToDevice(snapshot.val(), payload)
+    
+            },
+        function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+    });
+    })
