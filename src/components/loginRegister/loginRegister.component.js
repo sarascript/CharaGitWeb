@@ -99,7 +99,7 @@ export default {
         function(user) {
           alert("Your account was created " + user.name)
           var docRef = firebase.firestore().collection("Users")
-          docRef.doc(user.uid+"").set({Email:this.sRegisterEmail,Username:"Hola",Name:"Hola",Bio:"hola"})
+          docRef.doc(user.uid+"").set({Username:"Hola",Name:"Hola",Bio:"hola"})
         },
         function(err) {
           alert("Error in register -> " + err)
