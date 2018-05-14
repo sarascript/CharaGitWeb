@@ -1,14 +1,24 @@
 .principal {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
-.header {
-    position: absolute;
+.myheader {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.myfooter {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .lr {
     margin: auto;
+    margin-top: 15%;
     left: 35%;
     right: 35%;
     width: 30%;
