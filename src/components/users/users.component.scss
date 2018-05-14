@@ -2,15 +2,18 @@
 
     .wrapper {
         display: flex;
-        max-width: 444px;
-        flex-wrap: wrap;
+        width: 100%;
+        float: left;
+        margin: auto;
         padding-top: 12px;
     }
 
     .card {
+        display: flex;
+        float: left;
         background-color: white;
         box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
-        max-width: 124px;
+        width: 250px;
         margin: 12px;
         transition: .15s all ease-in-out;
         &:hover {
