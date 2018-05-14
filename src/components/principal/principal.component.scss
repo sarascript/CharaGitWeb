@@ -8,7 +8,7 @@
 }
 
 .lr {
-    position: absolute;
+    margin: auto;
     left: 35%;
     right: 35%;
     width: 30%;
@@ -16,10 +16,20 @@
 }
 
 .users {
-    position: absolute;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
     left: 5%;
     right: 5%;
     width: 90%;
     height: 50%;
-    top: 30%;
+}
+
+.repos {
+    margin: auto;
+    padding-top: 7%;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 50%;
 }

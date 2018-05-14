@@ -106,8 +106,5 @@ export default {
         }
       );
     },
-    btnLogout: function(event) {
-      firebase.auth().signOut()
-    }
   }
 }

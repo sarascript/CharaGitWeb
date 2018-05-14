@@ -1,0 +1,13 @@
+
+<section class="my-footer">
+    <div class="w3-row" id="container">
+      <div class="w3-col m12 l6" id="description">
+        <p>Follow us: </p>
+        <a href="https://twitter.com/CharaGit" target="_blank"><img src="http://icons.iconarchive.com/icons/fasticon/web-2/256/Twitter-icon.png" alt="Twitter" width="50px"></a>
+        <a href="https://www.facebook.com/CharaGit/" target="_blank"><img src="http://www.iconarchive.com/download/i11578/fasticon/web-2/FaceBook.ico" alt="Facebook" width="50px"></a>
+      </div>
+      <div class="w3-col m12 l6, logged" v-show="this.props_blIsLoggedIn">
+            <button v-on:click="btnLogout">Logout</button>
+      </div>
+    </div>
+</section>

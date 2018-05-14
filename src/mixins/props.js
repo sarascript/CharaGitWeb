@@ -8,6 +8,16 @@ class User {
     }
   }
 
+  class Repo {
+    constructor (id, datos) {
+      this.id = id
+      this.name = datos.Name
+      this.author = datos.Author
+      this.language = datos.Language
+      this.url = datos.URL
+    }
+  }
+
 export default {
     computed: {
         setUser(id, datosUser) {

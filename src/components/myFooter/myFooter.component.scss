@@ -1,0 +1,54 @@
+.my-footer {
+    background-color: #262626;
+    height: 50px;
+    width: 100%;
+}
+
+#container {
+    display: flex;
+    width: 100%;
+    float: left;
+}
+
+#description {
+    display: flex;
+    float: left;
+    height: 50px;
+    width: 80%;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    //line-height: 100px;
+    background-position: 50% 25%;
+    margin: auto;
+}
+
+a {
+    float: left;
+    margin: 0px 10px;
+}
+
+p {
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+}
+
+/* Set a style for all buttons */
+button {
+    display: flex;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    float: right;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}

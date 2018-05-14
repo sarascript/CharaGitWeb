@@ -1,0 +1,13 @@
+
+<section class="repos">
+  <h1>REPOS</h1>
+  <div class="wrapper">
+  <div class="card" v-for="repo in repos">
+    <a>
+      <b>{{repo.name}}</b>
+      {{repo.author}} · {{repo.language}}
+      <u><a :href="repo.url" target="_blank">{{repo.url}}</a></u>
+    </a>
+  </div>
+</div>
+</section>
